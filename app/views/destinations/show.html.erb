@@ -37,7 +37,7 @@
     Summary: <%= @weather.description %>
     </p>
     <p id="weather-image">
-    <!%= image_tag("#{@image.url}", :alt => "Weather Image") %>
+    <%= image_tag("#{@image.image_url}", :alt => "Weather Image") %>
     </p>
   </div>
 

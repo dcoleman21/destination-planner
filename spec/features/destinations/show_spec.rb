@@ -26,7 +26,7 @@ describe 'Can get current weather for a destination' do
     end
   end
 
-  xit "shows an image of current weather" do
+  it "shows an image of current weather" do
     destination1 = Destination.create!(
       name: 'Arvada',
       zip: '80005',
@@ -39,7 +39,17 @@ describe 'Can get current weather for a destination' do
     within(".row") do
       click_link "Show"
     end
-    expect(page).to have_css("#weather-image")
+
+    expect(current_path).to eq("/destinations/#{destination1.id}")
+
+    within(".weather") do
+      expect(page).to have_css("#date")
+      expect(page).to have_css("#current-temp")
+      expect(page).to have_css("#high-temp")
+      expect(page).to have_css("#low-temp")
+      expect(page).to have_css("#description")
+      expect(page).to have_css("#weather-image")
+    end
   end
 end
 
