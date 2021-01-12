@@ -11,12 +11,12 @@ class Api::V1::DestinationsController < ApplicationController
     render json:DestinationSerializer.new(Destination.create(destination_params))
   end
 
-  def destroy
-    Destination.delete(params[:id])
-  end
-
   def update
     render json:DestinationSerializer.new(Destination.update(params[:id], destination_params))
+  end
+
+  def destroy
+    Destination.delete(params[:id])
   end
 
   private
