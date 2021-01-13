@@ -4,7 +4,7 @@ describe "Destination API" do
   before :each do
     @destination1 = Destination.create!(
       name: "Olympic National Park",
-      zip: "157151",
+      zip: "98362",
       description: "Beautiful lush wildlife",
       image_url: "https://blog.theclymb.com/wp-content/uploads/2018/06/iStock-456053655-1.jpg"
     )
