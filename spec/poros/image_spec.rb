@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "Weather" do
+describe "Weather Image" do
   it "creates objects" do
     response = File.read('spec/fixtures/image_test_data.json')
     image = JSON.parse(response, symbolize_names: true)
