@@ -9,9 +9,20 @@ describe "Destination Weather" do
       description: "Growing fast",
       image_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8wEsMvmI4Q6CbEoakZMiyc8Kd437htv6e8Q&usqp=CAU"
     )
-    weather = WeatherFacade.fetch_weather_data(80005)
-    image = ImageFacade.fetch_image_data(weather.description)
+    weather_info = {
+      dt: 1610638888,
+      main: {temp:30.61, temp_min:27, temp_max:33.8},
+      weather: [{description: "scattered clouds"}]
+    }
+    weather = Weather.new(weather_info)
+    # weather = WeatherFacade.fetch_weather_data(80005)
+    image_info = {data:
+      [{images:
+        {original:
+          {url: "https://media4.giphy.com/media/G7XzhrnRdxNjW/giphy.gif?cid=c0f5ef4d7bkeeinao60drb1xy3m7ct21wz5kpzie6s8sejwk&rid=giphy.gif"}}}]}
 
+    image = Image.new(image_info)
+    # image = ImageFacade.fetch_image_data(weather.description)
     destination_weather = DestinationWeather.new(destination, weather, image)
 
     expect(destination_weather.id).to eq(destination.id)
